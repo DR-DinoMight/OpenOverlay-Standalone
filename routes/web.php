@@ -1,14 +1,14 @@
 <?php
 
 use App\Http\Controllers\Bot\ChatCommand\AddController as BotChatCommandAddController;
-use App\Http\Controllers\Bot\ChatCommand\ListController as BotChatCommandListController;
 use App\Http\Controllers\Bot\ChatCommand\DeleteController as BotChatCommandDeleteController;
 use App\Http\Controllers\Bot\ChatCommand\EditController as BotChatCommandEditController;
+use App\Http\Controllers\Bot\ChatCommand\ListController as BotChatCommandListController;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OverlayExampleController;
 use App\Http\Controllers\ViewerList\FollowerController;
 use App\Http\Controllers\ViewerList\SubscriberController;
-use App\Http\Controllers\OverlayExampleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,7 +38,6 @@ Route::middleware(['auth:sanctum', 'verified'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-
     Route::prefix('bot')->group(function () {
         Route::get('/')
             ->uses(BotController::class)
@@ -51,7 +50,6 @@ Route::middleware('auth')->group(function () {
         Route::get('remove-from-chat/{botId}')
             ->uses([BotController::class, 'removeBotFromChat'])
             ->name('bots.remove-from-chat');
-
 
         Route::prefix('chat-command')->group(function () {
             Route::get('/')
@@ -99,7 +97,6 @@ Route::middleware('auth')->group(function () {
             ->uses([SubscriberController::class, 'listAction'])
             ->name('subscribers.list');
     });
-
 });
 
 Route::get('overlay/{twitchUserId}')->uses(OverlayExampleController::class)

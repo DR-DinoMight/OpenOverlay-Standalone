@@ -14,7 +14,7 @@ return [
                 'user:read:email', 'user:read:broadcast',
                 'channel:read:subscriptions', 'channel:read:subscriptions', 'channel:read:redemptions',
                 'bits:read',
-                'chat:edit', 'chat:read'
+                'chat:edit', 'chat:read',
             ],
 
             /**
@@ -34,12 +34,12 @@ return [
          * You can use :username, :twitchUrl and :gameName for your message.
          */
         \Redbeed\OpenOverlay\Listeners\AutoShoutOutRaid::class => [
-            'message' => 'Follow :username over at :twitchUrl. They were last playing :gameName'
+            'message' => 'Follow :username over at :twitchUrl. They were last playing :gameName',
         ],
 
         \Redbeed\OpenOverlay\Support\ViewerInChat::class => [
-            'reset' => -1
-        ]
+            'reset' => -1,
+        ],
     ],
 
     'webhook' => [
@@ -85,11 +85,11 @@ return [
                 \Redbeed\OpenOverlay\ChatBot\Commands\ShoutOutBotCommand::class,
 
                 \App\Bot\Commands\DatabaseCommands::class,
-            ]
+            ],
         ],
 
         'schedules' => [
             \Redbeed\OpenOverlay\Console\Scheduling\MadeWithChatBotScheduling::class,
-        ]
-    ]
+        ],
+    ],
 ];

@@ -17,7 +17,7 @@ class EditRequest extends FormRequest
         return [
             'command'  => [
                 'required',
-                Rule::unique('bot_chat_command')->ignore($this->commandId)
+                Rule::unique('bot_chat_command')->ignore($this->commandId),
             ],
             'response' => 'required',
         ];

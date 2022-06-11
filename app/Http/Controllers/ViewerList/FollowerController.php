@@ -40,7 +40,7 @@ class FollowerController extends ViewerListController
         $followersQuery = UserFollowers::where('twitch_user_id', $connection->service_user_id)
             ->orderBy($sort, $sortDirection);
 
-        if($query) {
+        if ($query) {
             $followersQuery = $followersQuery->where('follower_username', 'LIKE', '%'.$query.'%');
         }
 

@@ -39,7 +39,7 @@ class EditController extends Controller
         $command->command = $request->get('command');
         $command->response = $request->get('response');
         $command->save();
-        
+
         // Restart Bot
         Artisan::call(RestartServerCommand::class);
 
