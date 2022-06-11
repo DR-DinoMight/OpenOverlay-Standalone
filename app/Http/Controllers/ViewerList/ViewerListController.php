@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class ViewerListController
 {
-    #[ArrayShape(['list' => "\Illuminate\Support\Collection", 'selected' => "mixed|null"])]
+    #[ArrayShape(['list' => "\Illuminate\Support\Collection", 'selected' => 'mixed|null'])]
     protected function getConnections(Request $request): array
     {
 
@@ -20,13 +20,13 @@ class ViewerListController
 
         $connectionId = $request->get('connection') ?? $connections->keys()->first();
 
-        if ($connections->count() > 0 && !$connections->get($connectionId)) {
+        if ($connections->count() > 0 && ! $connections->get($connectionId)) {
             $connectionId = null;
         }
 
         return [
             'list' => $connections,
-            'selected' => $connectionId
+            'selected' => $connectionId,
         ];
     }
 }

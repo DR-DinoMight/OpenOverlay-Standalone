@@ -40,7 +40,7 @@ class DashboardController extends Controller
 
     private function appTokenSet(): bool
     {
-        return !empty(config('openoverlay.webhook.twitch.app_token.token'));
+        return ! empty(config('openoverlay.webhook.twitch.app_token.token'));
     }
 
     private function twitchApiCheck(): bool
